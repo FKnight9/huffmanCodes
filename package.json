@@ -1,0 +1,19 @@
+{
+  "name": "huffmancodes",
+  "version": "1.0.0",
+  "description": "CS 590 Assignment Stevens Institute of Technology",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FKnight9/huffmanCodes.git"
+  },
+  "author": "Faris Ibrahim and Joseph Kuhn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FKnight9/huffmanCodes/issues"
+  },
+  "homepage": "https://github.com/FKnight9/huffmanCodes#readme"
+}
