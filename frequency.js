@@ -4,7 +4,7 @@ function getFrequencyTable(str) {
     console.log("Here");
 
     for (var i = 0; i < str.length; i++) {
-        if (isValid == true)
+        if (isValid(str.charAt(i)) == true)
         {
             check(str.charAt(i));
         }
@@ -36,7 +36,7 @@ function isValid(ch){
 }
 
 function check(ch){
-    if (table[ch])
+    if (ch in table)
     {
         table[ch]++;
     }
