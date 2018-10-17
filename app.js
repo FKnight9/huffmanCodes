@@ -1,6 +1,13 @@
-const frequency = require("./frequency");
+//const frequency = require("./frequency");
+const fs = require('fs');
 
-//Read the file
-//frequency.function(file)
+fs.readFile('infile.dat', 'utf8', function(err, data) {
+
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
 
 console.log("start");
