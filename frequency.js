@@ -9,8 +9,7 @@ function getFrequencyTable(str) {
             check(str.charAt(i));
         }
       }
-    console.log(table);
-    return table;
+    return sortFrequencyTable(table);
 }
 
 function isValid(ch){
@@ -44,6 +43,18 @@ function check(ch){
     {
         table[ch] = 1;
     }
+}
+
+function sortFrequencyTable(frequencyTable) {
+    let sortedTable = [];
+    for (let c in frequencyTable) {
+        sortedTable.push([c, frequencyTable[c]]);
+    }
+    sortedTable.sort(function(a, b) {
+        return a[1] - b[1];
+    });
+
+    return sortedTable;
 }
 
 module.exports = {

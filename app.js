@@ -6,7 +6,8 @@ fs.readFile('infile.dat', 'utf8', function(err, data) {
     if (err) {
         console.log(err);
     } else {
-        frequency.getFrequencyTable(data)
+        let sortedFrequencyTable = frequency.getFrequencyTable(data)
+        console.log(sortedFrequencyTable);
     }
 });
 
