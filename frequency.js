@@ -1,8 +1,6 @@
 let table = {};
 
 function getFrequencyTable(str) {
-    console.log("Here");
-
     for (var i = 0; i < str.length; i++) {
         if (isValid(str.charAt(i)) == true)
         {
@@ -45,6 +43,7 @@ function check(ch){
     }
 }
 
+// Received basis for following code from https://stackoverflow.com/questions/1069666/sorting-javascript-object-by-property-value
 function sortFrequencyTable(frequencyTable) {
     let sortedTable = [];
     for (let c in frequencyTable) {
@@ -56,6 +55,7 @@ function sortFrequencyTable(frequencyTable) {
 
     return sortedTable;
 }
+// ends here
 
 module.exports = {
     getFrequencyTable
