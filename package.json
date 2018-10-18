@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/FKnight9/huffmanCodes/issues"
   },
-  "homepage": "https://github.com/FKnight9/huffmanCodes#readme"
+  "homepage": "https://github.com/FKnight9/huffmanCodes#readme",
+  "dependencies": {
+    "table": "^5.1.0"
+  }
 }

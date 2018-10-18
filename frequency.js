@@ -1,7 +1,9 @@
 let table = {};
+let sLength = 0;
 
 function getFrequencyTable(str) {
-    for (var i = 0; i < str.length; i++) {
+    sLength = str.length;
+    for (var i = 0; i < sLength; i++) {
         if (isValid(str.charAt(i)) == true)
         {
             check(str.charAt(i));
@@ -57,6 +59,16 @@ function sortFrequencyTable(frequencyTable) {
 }
 // ends here
 
+function printableFrequencyTable(sortFrequencyTable) {
+    let printable = [];
+    printable.push(["Symbol", "Frequency"]);
+    for (let i = sortFrequencyTable.length - 1; i >= 0; i--) {
+        printable.push([sortFrequencyTable[i][0], (sortFrequencyTable[i][1] / sLength * 100) + '%']);
+    }
+    return printable;
+}
+
 module.exports = {
-    getFrequencyTable
+    getFrequencyTable,
+    printableFrequencyTable
 }

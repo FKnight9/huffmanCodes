@@ -31,7 +31,6 @@ function createHuffmanTable(huffmanTree) {
         return b[1] - a[1];
     });
     // Done
-    console.log(huffmanTable);
     return huffmanTable;
 }
 
@@ -46,14 +45,30 @@ function preOrderTraversal(head, binary) {
 
 function getLengthInBits(table) {
     let length = 0;
+    if (table.length === 1) return 1;
     for (let i = 0; i < table.length; i++) {
         length += table[i][1] * table[i][2].length;
     }
     return length;
 }
 
+function printableHuffmanTable(table) {
+    let printable = [];
+    printable.push(["Symbol" , "Huffman Code"]);
+    if (table.length === 1) {
+        printable.push([table[0][0], '0']);
+        return printable;
+    }
+
+    for(let i = 0; i < table.length; i++) {
+        printable.push([table[i][0], table[i][2]]);
+    }
+    return printable;
+}
+
 module.exports = {
     createHuffmanTree,
     createHuffmanTable,
-    getLengthInBits
+    getLengthInBits,
+    printableHuffmanTable
 }

@@ -1,17 +1,36 @@
 const huffman = require("./huffman");
 const frequency = require("./frequency");
 const fs = require('fs');
+const table = require('table').table;
 
-//Received basis for following code from https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback
-fs.readFile('infile.dat', 'utf8', function(err, data) {
+//Received basis for following code from https://nodejs.org/api/fs.html
+fs.readFile('infile.dat', 'utf8', function(err, str) {
 
     if (err) {
         console.log(err);
     } else {
-        let sortedFrequencyTable = frequency.getFrequencyTable(data)
+        if (str === "" || typeof str !== "string") throw "infile.dat is empty"
+        let sortedFrequencyTable = frequency.getFrequencyTable(str);
+        let printFrequencyTable = frequency.printableFrequencyTable(sortedFrequencyTable);
         let huffmanTree = huffman.createHuffmanTree(sortedFrequencyTable);
         let huffmanTable = huffman.createHuffmanTable(huffmanTree);
         let length = huffman.getLengthInBits(huffmanTable);
+        let printHuffmanTable = huffman.printableHuffmanTable(huffmanTable);
+        
+        let answer = "  Frequency Table\n" 
+            + table(printFrequencyTable) 
+            + "\n\n" 
+            + "  Huffman Code Table\n" 
+            + table(printHuffmanTable)
+            + "\n\n  Total Bits: "
+            + length;
+
+        fs.writeFile("outfile.dat", answer, "utf8", function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log("The file was saved!");
+        });
     }
 });
 // ends here
