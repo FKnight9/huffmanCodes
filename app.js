@@ -1,3 +1,4 @@
+const huffman = require("./huffman");
 const frequency = require("./frequency");
 const fs = require('fs');
 
@@ -8,7 +9,9 @@ fs.readFile('infile.dat', 'utf8', function(err, data) {
         console.log(err);
     } else {
         let sortedFrequencyTable = frequency.getFrequencyTable(data)
-        console.log(sortedFrequencyTable);
+        let huffmanTree = huffman.createHuffmanTree(sortedFrequencyTable);
+        let huffmanTable = huffman.createHuffmanTable(huffmanTree);
+        let length = huffman.getLengthInBits(huffmanTable);
     }
 });
 // ends here
